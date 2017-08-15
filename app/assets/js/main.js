@@ -48,6 +48,8 @@
 		var container = document.querySelector('#album_list_container');
 		var template = '';
 
+		//console.log(obj.results[0]);
+
 		if(obj.results.length > 0) {
 
 			document.querySelector('#not_match').style.display = 'none';
@@ -55,10 +57,10 @@
 			for(var i = 0; i < obj.results.length; i++) {
 
 				template += '<div class="col-sm-3 album_item">';
-				template +=		'<div class="item_thmb" style="background: url()"></div>';
-				template +=		'<div class="item_title">What the wiw</div>';
-				template +=		'<div class="item_price"><span>Price:</span> $200</div>';
-				template +=		'<a href="#" target="_blank">Buy now</a>';
+				template +=		'<div class="item_thmb" style="background: url('+ obj.results[i].artworkUrl100 +')"></div>';
+				template +=		'<div class="item_title">'+ obj.results[i].collectionName +'</div>';
+				template +=		'<div class="item_price"><span>Price:</span>'+ obj.results[i].collectionPrice +'</div>';
+				template +=		'<a href='+ obj.results[i].collectionViewUrl +' target="_blank">Buy now</a>';
 				template +=	'</div>';
 			}
 
